@@ -30,6 +30,7 @@ body {
   align-items: stretch;
 }
 
+/* All three pieces must occupy the SAME grid row */
 .doodle-left,
 .content,
 .doodle-right {
@@ -48,7 +49,7 @@ body {
   grid-column: 3;
 }
 
-/* MAIN TEXT */
+/* TEXT */
 
 .content {
   width: 100%;
@@ -58,29 +59,28 @@ body {
   text-align: left;
 }
 
-/* SIDE DOODLES
-   These are now long transparent strips made specifically for the page.
-   They are shown once at their correct aspect ratio, so nothing is stretched
-   or repeated. */
+/* SIDE ART
+   The side columns stretch to the full height of the text.
+   The artwork repeats vertically instead of being distorted. */
 
 .doodle-side {
   min-width: 0;
   align-self: stretch;
 
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: top center;
   background-size: 100% auto;
 
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.92;
 }
 
 .doodle-left {
-  background-image: url("./downtown-left-doodle-long-v2.png");
+  background-image: url("./downtown-left-doodle.png");
 }
 
 .doodle-right {
-  background-image: url("./downtown-right-doodle-long-v2.png");
+  background-image: url("./downtown-right-doodle.png");
 }
 
 /* TYPOGRAPHY */
@@ -94,6 +94,7 @@ h3 {
 
 h1 {
   margin: 20px 0 30px;
+
   font-size: 5rem;
   font-weight: 700;
   line-height: 0.95;
@@ -102,12 +103,14 @@ h1 {
 
 h2 {
   margin: 90px 0 10px;
+
   font-size: 2rem;
   font-weight: 600;
 }
 
 h3 {
   margin: 15px 0 30px;
+
   font-size: 1.35rem;
   font-style: italic;
   font-weight: 300;
@@ -132,6 +135,7 @@ p {
 ol {
   margin: 30px 0 60px;
   padding-left: 25px;
+
   font-size: 0.8rem;
   font-style: italic;
 }
@@ -139,6 +143,8 @@ ol {
 li {
   margin-bottom: 15px;
 }
+
+/* LAPTOP */
 
 @media (max-width: 1050px) {
   .page-layout {
@@ -158,6 +164,8 @@ li {
   }
 }
 
+/* TABLET */
+
 @media (max-width: 800px) {
   .page-layout {
     grid-template-columns:
@@ -175,6 +183,8 @@ li {
     font-size: 3.4rem;
   }
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
   .page-layout {
